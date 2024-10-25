@@ -138,6 +138,14 @@ function handle_do_block( array $block, $post_id = 0 ) {
 		}
 	}
 
+	/*
+		Filter $attrs to allow plugins/themes to add additional fields etc
+		Useful for acf 
+
+	*/
+
+	$attr = apply_filters( 'wp_rest_blocks_attr_filter', $attr );
+
   // * Removed by Ava
 	// $block['rendered'] = $block_object->render();
 	// $block['rendered'] = do_shortcode( $block['rendered'] );
